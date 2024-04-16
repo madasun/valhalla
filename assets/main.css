@@ -1,11 +1,19 @@
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+}
+
+:root {
+  --main-bg-color: #29383a;
 }
 
 body {
   font-family: Arial;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  border: none;
+  padding: 0;
+  font-size: calc(0.625vmin + 0.75rem); /* Responsive font */
 }
 
 #nav {
@@ -47,10 +55,11 @@ body {
   height: 500px;
 }
 
-.content {
-  background: #000;
-  height: 100vh;
+.container {
   color: #fff;
+  max-width: 960px;
+  margin: 0 auto;
+  padding-bottom: 5em;
 }
 
 ul li ul.dropdown {
@@ -63,4 +72,90 @@ ul li ul.dropdown {
 
 ul li:hover ul.dropdown {
   display: grid;
+}
+
+.intro {
+  display: block;
+}
+
+.intro > * {
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+button {
+  background-color: #3e5558;
+  border: 2px solid #3e5558;
+  border-radius: 10px;
+  color: #fff;
+  padding: 8px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 560;
+  font-size: 0.7em;
+  letter-spacing: 0.2em;
+  height: 4em;
+}
+
+@media (min-width: 768px) {
+  .intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Flexbox parent containers */
+.list,
+.server > a,
+.server-card {
+  display: flex;
+}
+
+.list,
+.server > a {
+  flex-flow: row wrap;
+}
+
+.server-card {
+  flex-flow: column wrap;
+  justify-content: space-between;
+}
+
+/* Flexbox child items */
+.server-card,
+.server-description {
+  flex: 1;
+}
+
+/* Flexbox spacing */
+.list {
+  gap: 1rem;
+  list-style-type: none;
+}
+
+.server > a,
+.server-card {
+  gap: 0.5rem;
+}
+
+/* Sizing and Styling */
+[class*="server"] {
+  padding: 0.5rem;
+}
+
+.server {
+  max-width: min(18.5rem, 100%);
+  color: #fff;
+}
+
+.server > a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+.server-title {
+  background-color: var(--main-bg-color);
+  font-size: 1.3em;
+  font-weight: bold;
+  border-radius: 0.2em;
 }
